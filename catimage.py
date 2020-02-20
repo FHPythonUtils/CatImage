@@ -46,10 +46,7 @@ def genANSIpx(beforeFgColour, colour):
 			colourArr.append("39")
 		else:
 			colourArr += ["38", "5", str(colour)]
-	if len(colourArr) > 0:
-		return "\x1b[" + ";".join(colourArr) + "m"
-	else:
-		return ""
+	return "\x1b[" + ";".join(colourArr) + "m" if len(colourArr) > 0 else ""
 
 def generateColour(pixels, width, height, char="\u2588"):
 	"""Iterate through all of the pixels in an image and construct a printable
@@ -110,7 +107,6 @@ def catImage(imageName, maxLen, colour, char):
 	image = Image.open(imageName)
 	image = image.convert("RGBA")
 	initW, initH = image.size
-	columns, rows = os.get_terminal_size(0)
 	scale = maxLen / max(initH, initW)
 	width = int(scale * initW)*2
 	height = int(scale * initH)
@@ -125,14 +121,18 @@ def catImage(imageName, maxLen, colour, char):
 
 if __name__ == "__main__": # pragma: no cover
 	parser = argparse.ArgumentParser(description="cat an image")
-	parser.add_argument("image", type=str, nargs=1, help="image file or url")
-	parser.add_argument("-g", "--greyscale", help="image in greyscale (as opposed to colour?)", action="store_true")
-	parser.add_argument("-u", "--url", help="image is url (as opposed to file?)", action="store_true")
-	parser.add_argument("-c", "--char", help="char to use in colour print use $'chr' for escaped chars", action="store")
-	parser.add_argument("-b", "--big", help="big image?", action="store_true")
+	parser.add_argument("image", type=str,
+		help="image file or url")
+	parser.add_argument("-g", "--greyscale", action="store_true",
+		help="image in greyscale (as opposed to colour?)")
+	parser.add_argument("-u", "--url", action="store_true",
+		help="image is url (as opposed to file?)")
+	parser.add_argument("-c", "--char", action="store",
+		help="char to use in colour print use $'chr' for escaped chars")
+	parser.add_argument("-b", "--big", action="store_true",
+		help="big image?")
 
 	args = parser.parse_args()
-	args.image = args.image[0]
 
 	if args.char is None:
 		args.char = "\u2588"
