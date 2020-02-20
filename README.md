@@ -11,9 +11,21 @@
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
+## Install Single Script
+### Wget
+```bash
+wget -O /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python.CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
+```
+### Curl
+```bash
+curl -o /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python.CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
+```
+
 Use to cat an image to the terminal, see the help text below for more
 information on using this tool from the command line:
 ```python
+usage: catimage [-h] [-g] [-u] [-c CHAR] [-b] image
+
 cat an image
 
 positional arguments:
@@ -23,10 +35,10 @@ optional arguments:
   -h, --help            show this help message and exit
   -g, --greyscale       image in greyscale (as opposed to colour?)
   -u, --url             image is url (as opposed to file?)
-  -c CHAR, --char CHAR  char to use in colour print
+  -c CHAR, --char CHAR  char to use in colour print use $'chr' for escaped
+                        chars
   -b, --big             big image?
 ```
-
 
 Alternatively, drop into your project and use:
 
@@ -58,24 +70,36 @@ def generateGreyscale(pixels, width, height):
 	"""
 ```
 
-
-
 ## Language information
 ### Built for
 This program has been written for Python 3 and has been tested with
 Python version 3.8.0 <https://www.python.org/downloads/release/python-380/>.
 
-Install with chocolatey
+## Install Python on Windows
+### Chocolatey
 ```powershell
 choco install python
 ```
-### Other versions
+### Download
 To install Python, go to <https://www.python.org/> and download the latest
 version.
+
+## Install Python on Linux
+### Apt
+```bash
+sudo apt install python3.8
+```
+
 ## How to run
+### With VSCode
 1. Open the .py file in vscode
 2. Ensure a python 3.8 interpreter is selected (Ctrl+Shift+P > Python:Select Interpreter > Python 3.8)
 3. Run by pressing Ctrl+F5 (if you are prompted to install any modules, accept)
+### From the Terminal
+```bash
+./[file].py
+```
+
 
 
 ## Changelog
