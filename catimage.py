@@ -128,7 +128,7 @@ if __name__ == "__main__": # pragma: no cover
 	parser.add_argument("image", type=str, nargs=1, help="image file or url")
 	parser.add_argument("-g", "--greyscale", help="image in greyscale (as opposed to colour?)", action="store_true")
 	parser.add_argument("-u", "--url", help="image is url (as opposed to file?)", action="store_true")
-	parser.add_argument("-c", "--char", help="char to use in colour print", action="store")
+	parser.add_argument("-c", "--char", help="char to use in colour print use $'chr' for escaped chars", action="store")
 	parser.add_argument("-b", "--big", help="big image?", action="store_true")
 
 	args = parser.parse_args()
@@ -136,7 +136,6 @@ if __name__ == "__main__": # pragma: no cover
 
 	if args.char is None:
 		args.char = "\u2588"
-
 
 	if args.url:
 		urllib.request.urlretrieve(args.image, "dowloadedImage.jpg")
