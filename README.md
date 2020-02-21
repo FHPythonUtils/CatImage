@@ -21,10 +21,59 @@ wget -O /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python
 curl -o /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python.CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
 ```
 
+
+## Example
+Original Image:
+
+<img src="readme-assets/screenshots/desktop/example-0.png" alt="Screenshot 1" width="600">
+
+Greyscale Image:
+```python
+./catimage.py readme-assets/screenshots/desktop/example-0.png -g
+```
+
+<img src="readme-assets/screenshots/desktop/example-1.png" alt="Screenshot 2" width="600">
+
+Regular Definition Image:
+```python
+./catimage.py readme-assets/screenshots/desktop/example-0.png -r
+```
+
+<img src="readme-assets/screenshots/desktop/example-2.png" alt="Screenshot 3" width="600">
+
+Regular Definition Image with '@':
+```python
+./catimage.py readme-assets/screenshots/desktop/example-0.png -r -c @
+```
+
+<img src="readme-assets/screenshots/desktop/example-3.png" alt="Screenshot 4" width="600">
+
+HD Image:
+```python
+./catimage.py readme-assets/screenshots/desktop/example-0.png
+```
+
+<img src="readme-assets/screenshots/desktop/example-4.png" alt="Screenshot 5" width="600">
+
+HD Image with right half block:
+```python
+./catimage.py readme-assets/screenshots/desktop/example-0.png -c $'\u2590'
+```
+
+<img src="readme-assets/screenshots/desktop/example-5.png" alt="Screenshot 6" width="600">
+
+HD Image True Colour:
+```python
+./catimage.py readme-assets/screenshots/desktop/example-0.png -t
+```
+
+<img src="readme-assets/screenshots/desktop/example-6.png" alt="Screenshot 7" width="600">
+
+## How To Use
 Use to cat an image to the terminal, see the help text below for more
 information on using this tool from the command line:
 ```python
-usage: catimage [-h] [-g] [-u] [-c CHAR] [-b] image
+usage: catimage.py [-h] [-u] [-b] [-c CHAR] [-t] [-g | -r] image
 
 cat an image
 
@@ -33,11 +82,17 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -g, --greyscale       image in greyscale (as opposed to colour?)
   -u, --url             image is url (as opposed to file?)
+  -b, --big             big image?
   -c CHAR, --char CHAR  char to use in colour print use $'chr' for escaped
                         chars
-  -b, --big             big image?
+  -t, --truecolour      output in truecolour?
+
+Choose one of the following:
+  Use the following arguments to change the look of the image
+
+  -g, --greyscale       image in greyscale (as opposed to colour?)
+  -r, --regular         image in regular definition?
 ```
 
 Alternatively, drop into your project and use:
