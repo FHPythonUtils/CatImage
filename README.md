@@ -36,35 +36,35 @@ Greyscale Image:
 
 Regular Definition Image:
 ```python
-./catimage.py readme-assets/screenshots/desktop/example-0.png -r
+./catimage.py readme-assets/screenshots/desktop/example-0.png -r -t
 ```
 
 <img src="readme-assets/screenshots/desktop/example-2.png" alt="Screenshot 3" width="600">
 
 Regular Definition Image with '@':
 ```python
-./catimage.py readme-assets/screenshots/desktop/example-0.png -r -c @
+./catimage.py readme-assets/screenshots/desktop/example-0.png -r -c @ -t
 ```
 
 <img src="readme-assets/screenshots/desktop/example-3.png" alt="Screenshot 4" width="600">
 
 HD Image:
 ```python
-./catimage.py readme-assets/screenshots/desktop/example-0.png
+./catimage.py readme-assets/screenshots/desktop/example-0.png -t
 ```
 
 <img src="readme-assets/screenshots/desktop/example-4.png" alt="Screenshot 5" width="600">
 
 HD Image with right half block:
 ```python
-./catimage.py readme-assets/screenshots/desktop/example-0.png -c $'\u2590'
+./catimage.py readme-assets/screenshots/desktop/example-0.png -c $'\u2590' -t
 ```
 
 <img src="readme-assets/screenshots/desktop/example-5.png" alt="Screenshot 6" width="600">
 
 HD Image True Colour:
 ```python
-./catimage.py readme-assets/screenshots/desktop/example-0.png -t
+./catimage.py readme-assets/screenshots/desktop/example-0.png
 ```
 
 <img src="readme-assets/screenshots/desktop/example-6.png" alt="Screenshot 7" width="600">
@@ -82,17 +82,18 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -u, --url             image is url (as opposed to file?)
-  -b, --big             big image?
+  -u, --url             image is a url (as opposed to file)
+  -b, --big             big image
   -c CHAR, --char CHAR  char to use in colour print use $'chr' for escaped
                         chars
-  -t, --truecolour      output in truecolour?
+  -t, --disable-truecolour
+                        disable output in truecolour
 
 Choose one of the following:
   Use the following arguments to change the look of the image
 
-  -g, --greyscale       image in greyscale (as opposed to colour?)
-  -r, --regular         image in regular definition?
+  -g, --greyscale       image in greyscale (as opposed to colour)
+  -r, --regular         image in regular definition
 ```
 
 Alternatively, drop into your project and use:

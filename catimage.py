@@ -50,7 +50,7 @@ def getANSIColour(rgb):
 	websafeB = int(round((rgb[2] / 255.0) * 5))
 	return int(((websafeR * 36) + (websafeG * 6) + websafeB) + 16)
 
-def genANSIpx(beforeColour, colour, bg=False, trueColour=False):
+def genANSIpx(beforeColour, colour, bg=False, trueColour=True):
 	"""Generate the ansi escape string for a set of pixels with the same
 	colour
 
@@ -58,7 +58,7 @@ def genANSIpx(beforeColour, colour, bg=False, trueColour=False):
 		beforeColour (int): previous colour
 		colour (int): current colour
 		bg (bool, optional): ansi background char. Defaults to False.
-		trueColour (bool, optional): print in true colour. Defaults to False.
+		trueColour (bool, optional): print in true colour. Defaults to True.
 
 	Returns:
 		str: string to represent char colour
@@ -192,21 +192,21 @@ if __name__ == "__main__": # pragma: no cover
 	parser.add_argument("image", type=str,
 		help="image file or url")
 	parser.add_argument("-u", "--url", action="store_true",
-		help="image is url (as opposed to file?)")
+		help="image is a url (as opposed to file)")
 	parser.add_argument("-b", "--big", action="store_true",
-		help="big image?")
+		help="big image")
 	parser.add_argument("-c", "--char", action="store",
 		help="char to use in colour print use $'chr' for escaped chars")
-	parser.add_argument("-t", "--truecolour", action="store_true",
-		help="output in truecolour?")
+	parser.add_argument("-t", "--disable-truecolour", action="store_true",
+		help="disable output in truecolour")
 
 	group = parser.add_argument_group("Choose one of the following",
 		"Use the following arguments to change the look of the image")
 	mxg = group.add_mutually_exclusive_group()
 	mxg.add_argument("-g", "--greyscale", action="store_true",
-		help="image in greyscale (as opposed to colour?)")
+		help="image in greyscale (as opposed to colour)")
 	mxg.add_argument("-r", "--regular", action="store_true",
-		help="image in regular definition?")
+		help="image in regular definition")
 
 	args = parser.parse_args()
 
@@ -215,4 +215,4 @@ if __name__ == "__main__": # pragma: no cover
 		args.image = "dowloadedImage.jpg"
 
 	os.path.exists(args.image)
-	catImage(args.image, 130 if args.big else 78, not args.greyscale, not args.regular, args.truecolour, args.char)
+	catImage(args.image, 130 if args.big else 78, not args.greyscale, not args.regular, not args.disable_truecolour, args.char)
