@@ -99,27 +99,42 @@ Choose one of the following:
 Alternatively, drop into your project and use:
 
 ```python
-def generateColour(pixels, width, height, char="\u2588"):
+def generateHDColour(imageName, maxLen, trueColour=True, char="\u2584"):
+	"""Iterate through image pixels to make a printable string
+
+	Args:
+		imageName (str): path of the image on the filesystem (relative of
+		absolute)
+		maxLen (int): maximum of width and height in chars
+		trueColour (bool, optional): print in true colour. Defaults to True.
+		char (str, optional): use this char for each pixel. Defaults to "\u2584".
+
+	Returns:
+		str: string to print
+	"""
+
+def generateColour(imageName, maxLen, trueColour=True, char="\u2588"):
 	"""Iterate through all of the pixels in an image and construct a printable
 	string
 
 	Args:
-		pixels (int[][]): 2d array of pixels these are int[]
-		width (int): image width
-		height (int): image height
+		imageName (str): path of the image on the filesystem (relative of
+		absolute)
+		maxLen (int): maximum of width and height in chars
+		trueColour (bool, optional): print in true colour. Defaults to True.
 		char (str, optional): use this char for each pixel. Defaults to "\u2588".
 
 	Returns:
 		str: string to print
 	"""
 
-def generateGreyscale(pixels, width, height):
+def generateGreyscale(imageName, maxLen):
 	"""Iterate through image pixels to make a printable string
 
 	Args:
-		pixels (int[][]): 2d array of pixels these are int[]
-		width (int): image width
-		height (int): image height
+		imageName (str): path of the image on the filesystem (relative of
+		absolute)
+		maxLen (int): maximum of width and height in chars
 
 	Returns:
 		str: string to print

@@ -12,6 +12,7 @@ from PIL import Image
 import platform
 import urllib.request
 import os
+import ctypes
 
 
 def openImageToPx(imageName, maxLen, hd=False):
@@ -78,20 +79,22 @@ def genANSIpx(beforeColour, colour, bg=False, trueColour=True):
 			colourArr += ["48" if bg else "38", "2", str(colour[0]), str(colour[1]), str(colour[2])]
 	return "\x1b[" + ";".join(colourArr) + "m" if len(colourArr) > 0 else ""
 
-def generateHDColour(imageName, maxLen, trueColour, char="\u2584"):
+
+def generateHDColour(imageName, maxLen, trueColour=True, char="\u2584"):
 	"""Iterate through image pixels to make a printable string
 
 	Args:
 		imageName (str): path of the image on the filesystem (relative of
 		absolute)
 		maxLen (int): maximum of width and height in chars
+		trueColour (bool, optional): print in true colour. Defaults to True.
 		char (str, optional): use this char for each pixel. Defaults to "\u2584".
 
 	Returns:
 		str: string to print
 	"""
 	char = "\u2584" if char is None else char
-	pixels, width, height = openImageToPx(imageName, maxLen, True)
+	pixels, width, height = openImageToPx(imageName, maxLen, hd=True)
 	result = "\x1b[2K\x1b[0m" # Clear line and reset
 	beforeFgColour = None
 	beforeBgColour = None
@@ -121,7 +124,7 @@ def generateHDColour(imageName, maxLen, trueColour, char="\u2584"):
 
 	return result
 
-def generateColour(imageName, maxLen, trueColour, char="\u2588"):
+def generateColour(imageName, maxLen, trueColour=True, char="\u2588"):
 	"""Iterate through all of the pixels in an image and construct a printable
 	string
 
@@ -129,6 +132,7 @@ def generateColour(imageName, maxLen, trueColour, char="\u2588"):
 		imageName (str): path of the image on the filesystem (relative of
 		absolute)
 		maxLen (int): maximum of width and height in chars
+		trueColour (bool, optional): print in true colour. Defaults to True.
 		char (str, optional): use this char for each pixel. Defaults to "\u2588".
 
 	Returns:
@@ -213,6 +217,10 @@ if __name__ == "__main__": # pragma: no cover
 	if args.url:
 		urllib.request.urlretrieve(args.image, "dowloadedImage.jpg")
 		args.image = "dowloadedImage.jpg"
+
+	if platform.system() == "Windows":
+		kernel32 = ctypes.windll.kernel32
+		kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 	os.path.exists(args.image)
 	catImage(args.image, 130 if args.big else 78, not args.greyscale, not args.regular, not args.disable_truecolour, args.char)
