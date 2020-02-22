@@ -68,7 +68,7 @@ def genANSIpx(beforeColour, colour, bg=False, trueColour=True):
 
 	if not trueColour:
 		beforeColour = getANSIColour(beforeColour) if beforeColour is not None else None
-		colour = getANSIColour(colour)
+		colour = getANSIColour(colour) if colour is not None else None
 
 	if colour != beforeColour:
 		if colour is None:
