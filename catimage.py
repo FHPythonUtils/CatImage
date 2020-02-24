@@ -7,13 +7,17 @@ Cat an image to the console. Inspired by img2txt
 https://github.com/hit9/img2txt.git by Chao Wang
 """
 
-import argparse
 from PIL import Image
 import platform
 import urllib.request
 import os
+import sys
 import ctypes
+from gooey import Gooey, GooeyParser
 
+# Gooey is great, but the user should opt in
+if "--gui" not in sys.argv:
+	sys.argv.append("--ignore-gooey")
 
 def openImageToPx(imageName, maxLen, hd=False):
 	"""Get an array of pixels and the dimensions of these
@@ -103,7 +107,7 @@ def generateHDColour(imageName, maxLen, trueColour=True, char="\u2584"):
 			rgbaBg = pixels[w, h]
 			try:
 				rgbaFg = pixels[w, h+1]
-			except:
+			except IndexError:
 				rgbaFg = pixels[w, h]
 			if rgbaBg[3] != 0:
 				result += genANSIpx(beforeBgColour, rgbaBg[:3], True, trueColour=trueColour)
@@ -191,26 +195,32 @@ def catImage(imageName, maxLen, colour, hd, trueColour, char):
 
 	print(result)
 
-if __name__ == "__main__": # pragma: no cover
-	parser = argparse.ArgumentParser(description="cat an image")
-	parser.add_argument("image", type=str,
-		help="image file or url")
-	parser.add_argument("-u", "--url", action="store_true",
-		help="image is a url (as opposed to file)")
-	parser.add_argument("-b", "--big", action="store_true",
-		help="big image")
-	parser.add_argument("-c", "--char", action="store",
-		help="char to use in colour print use $'chr' for escaped chars")
-	parser.add_argument("-t", "--disable-truecolour", action="store_true",
-		help="disable output in truecolour")
+@Gooey(
+	program_name="CatImage", suppress_gooey_flag=True, default_size=(800, 600),
+	monospace_display=True, richtext_controls=True, image_dir="assets"
+)
+def main(): # pragma: no cover
+	parser = GooeyParser(description="Cat an image to the terminal")
+	parser.add_argument("image", type=str, metavar="Image",
+		help="Image file or url", widget="FileChooser")
+	parser.add_argument("--gui", action="store_true", metavar="GUI",
+		help="Start program as a GUI. Note: Has a dumb terminal")
+	parser.add_argument("-u", "--url", action="store_true", metavar="URL",
+		help="Image is a URL")
+	parser.add_argument("-b", "--big", action="store_true", metavar="Big",
+		help="Big image")
+	parser.add_argument("-c", "--char", action="store", metavar="Char",
+		help="Char to use in colour print use $'chr' for escaped chars")
+	parser.add_argument("-t", "--disable-truecolour", action="store_true", metavar="Disable Truecolor",
+		help="Disable output in truecolour")
 
 	group = parser.add_argument_group("Choose one of the following",
 		"Use the following arguments to change the look of the image")
 	mxg = group.add_mutually_exclusive_group()
-	mxg.add_argument("-g", "--greyscale", action="store_true",
-		help="image in greyscale (as opposed to colour)")
-	mxg.add_argument("-r", "--regular", action="store_true",
-		help="image in regular definition")
+	mxg.add_argument("-g", "--greyscale", action="store_true", metavar="Greyscale",
+		help="Output image in greyscale (best for terminals that cannot handle ANSI)")
+	mxg.add_argument("-r", "--regular", action="store_true", metavar="Regular",
+		help="Output image in regular definition")
 
 	args = parser.parse_args()
 
@@ -223,4 +233,8 @@ if __name__ == "__main__": # pragma: no cover
 		kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 	os.path.exists(args.image)
-	catImage(args.image, 130 if args.big else 78, not args.greyscale, not args.regular, not args.disable_truecolour, args.char)
+	catImage(args.image, 130 if args.big else 78, not args.greyscale,
+		not args.regular, not args.disable_truecolour, args.char)
+
+if __name__ == "__main__": # pragma: no cover
+	main()
