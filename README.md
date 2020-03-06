@@ -1,11 +1,11 @@
-[![Github top language](https://img.shields.io/github/languages/top/FredHappyface/Python.CatImage.svg?style=flat-square)](../../)
-[![Codacy grade](https://img.shields.io/codacy/grade/[codacy-proj-id].svg?style=flat-square)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
-[![Codacy coverage](https://img.shields.io/codacy/coverage/[codacy-proj-id].svg?style=flat-square)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
-[![Repository size](https://img.shields.io/github/repo-size/FredHappyface/Python.CatImage.svg?style=flat-square)](../../)
-[![Issues](https://img.shields.io/github/issues/FredHappyface/Python.CatImage.svg?style=flat-square)](../../issues)
-[![License](https://img.shields.io/github/license/FredHappyface/Python.CatImage.svg?style=flat-square)](/LICENSE.md)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Python.CatImage.svg?style=flat-square)](../../commits/master)
-[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Python.CatImage.svg?style=flat-square)](../../commits/master)
+[![Github top language](https://img.shields.io/github/languages/top/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../)
+[![Codacy grade](https://img.shields.io/codacy/grade/[codacy-proj-id].svg?style=for-the-badge)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
+[![Codacy coverage](https://img.shields.io/codacy/coverage/[codacy-proj-id].svg?style=for-the-badge)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
+[![Repository size](https://img.shields.io/github/repo-size/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../)
+[![Issues](https://img.shields.io/github/issues/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../issues)
+[![License](https://img.shields.io/github/license/FredHappyface/Python.CatImage.svg?style=for-the-badge)](/LICENSE.md)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
+[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
 
 # Python.CatImage
 
