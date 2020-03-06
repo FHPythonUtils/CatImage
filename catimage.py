@@ -209,7 +209,7 @@ def handleArgs(args):
 		result = generateGreyscale(args.image, maxLen)
 	print(result)
 
-@Cli2Gui(run_function=handleArgs, image="program_icon.png")
+@Cli2Gui(run_function=handleArgs, image="program_icon.png", program_name="CatImage")
 def cli(): # pragma: no cover
 	parser = argparse.ArgumentParser(description="cat an image to the terminal")
 	parser.add_argument("image", type=str,

@@ -98,7 +98,7 @@ Choose one of the following:
 
 GUI
 
-Use the --gui flag to launch a GUI
+Use the --cli2gui flag to launch a GUI
 
 <div>
 <img src="readme-assets/screenshots/desktop/gui-0.png" alt="GUI 1" width="600">
