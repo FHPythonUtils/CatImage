@@ -1,2 +1,2 @@
-Gooey==1.0.3
+cli2gui==2020.2
 Pillow==7.0.0
