@@ -10,12 +10,14 @@ https://github.com/hit9/img2txt.git by Chao Wang
 import platform
 import urllib.request
 import os
-import sys
 import ctypes
 import argparse
+from pathlib import Path
 
 from PIL import Image
 from cli2gui import Cli2Gui
+
+THISDIR = str(Path(__file__).resolve().parent)
 
 def openImageToPx(imageName, maxLen, hd=False):
 	"""Get an array of pixels and the dimensions of these
@@ -209,7 +211,7 @@ def handleArgs(args):
 		result = generateGreyscale(args.image, maxLen)
 	print(result)
 
-@Cli2Gui(run_function=handleArgs, image="program_icon.png", program_name="CatImage")
+@Cli2Gui(run_function=handleArgs, image=THISDIR + os.sep + "program_icon.png", program_name="CatImage")
 def cli(): # pragma: no cover
 	parser = argparse.ArgumentParser(description="cat an image to the terminal")
 	parser.add_argument("image", type=str,
@@ -234,8 +236,6 @@ def cli(): # pragma: no cover
 	args = parser.parse_args()
 
 	handleArgs(args)
-
-
 
 
 if __name__ == "__main__": # pragma: no cover

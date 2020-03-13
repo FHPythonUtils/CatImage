@@ -1,11 +1,11 @@
 [![Github top language](https://img.shields.io/github/languages/top/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../)
-[![Codacy grade](https://img.shields.io/codacy/grade/[codacy-proj-id].svg?style=for-the-badge)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
-[![Codacy coverage](https://img.shields.io/codacy/coverage/[codacy-proj-id].svg?style=for-the-badge)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
+[![Codacy grade](https://img.shields.io/codacy/grade/6b3bd2d2569f44dca74a391e905042ac.svg?style=for-the-badge)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
 [![Repository size](https://img.shields.io/github/repo-size/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../)
 [![Issues](https://img.shields.io/github/issues/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../issues)
 [![License](https://img.shields.io/github/license/FredHappyface/Python.CatImage.svg?style=for-the-badge)](/LICENSE.md)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
+[![PyPI](https://img.shields.io/pypi/dm/catimage.svg?style=for-the-badge)](https://pypi.org/project/catimage/)
 
 # Python.CatImage
 
@@ -20,6 +20,14 @@ wget -O /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python
 ```bash
 curl -o /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python.CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
 ```
+
+## Install With PIP
+
+```python
+pip install catimage
+```
+
+Head to https://pypi.org/project/catimage/ for more info
 
 
 ## Example
@@ -105,7 +113,7 @@ Use the --cli2gui flag to launch a GUI
 <img src="readme-assets/screenshots/desktop/gui-1.png" alt="GUI 2" width="600">
 </div>
 
-Alternatively, drop into your project and use:
+Alternatively, import into your project and use:
 
 ```python
 def generateHDColour(imageName, maxLen, trueColour=True, char="\u2584"):

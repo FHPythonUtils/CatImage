@@ -1,2 +1,2 @@
-cli2gui==2020.2
+cli2gui==2020.3
 Pillow==7.0.0

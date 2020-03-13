@@ -18,3 +18,6 @@ parser.add_argument
 <p>Most HD v2020.2</p>
 <img src="readme-assets/screenshots/desktop/example-6.png" alt="Screenshot 7" width="600">
 </div>
+
+## 2020.3 - 2020/03/13
+- Upload to pypi
