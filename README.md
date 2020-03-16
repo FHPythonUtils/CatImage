@@ -11,6 +11,10 @@
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
+New Icon?
+
+<img src="readme-assets/icons/name1.png" alt="Project Icon" width="750">
+
 ## Install Single Script
 ### Wget
 ```bash
