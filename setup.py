@@ -7,7 +7,7 @@ with open("README.md", "r") as readme:
 
 setuptools.setup(
 	name="catimage",
-	version="2020.3",
+	version="2020.4",
 	author="FredHappyface",
 	description="Use to cat an image to the terminal",
 	long_description=long_description,
