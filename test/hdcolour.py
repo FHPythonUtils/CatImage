@@ -6,6 +6,6 @@ from pathlib import Path
 THISDIR = str(Path(__file__).resolve().parent)
 sys.path.insert(0, os.path.dirname(THISDIR))
 
-import catimage.catimage as catimage
+import catimage
 
 print(catimage.generateHDColour(THISDIR + os.sep + "test.png", 80))
