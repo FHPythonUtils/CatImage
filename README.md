@@ -5,8 +5,10 @@
 [![License](https://img.shields.io/github/license/FredHappyface/Python.CatImage.svg?style=for-the-badge)](/LICENSE.md)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
-[![PyPI](https://img.shields.io/pypi/dm/catimage.svg?style=for-the-badge)](https://pypi.org/project/catimage/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/catimage.svg?style=for-the-badge)](https://pypi.org/project/catimage/)
+[![PyPI Version](https://img.shields.io/pypi/v/catimage.svg?style=for-the-badge)](https://pypi.org/project/catimage/)
 
+<!-- omit in toc -->
 # Python.CatImage
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
@@ -14,6 +16,34 @@
 New Icon?
 
 <img src="readme-assets/icons/name1.png" alt="Project Icon" width="750">
+
+Cat an image to the terminal.
+
+- [Install Single Script](#install-single-script)
+	- [Wget](#wget)
+	- [Curl](#curl)
+- [Install With PIP](#install-with-pip)
+- [Example](#example)
+- [How To Use](#how-to-use)
+- [Language information](#language-information)
+	- [Built for](#built-for)
+- [Install Python on Windows](#install-python-on-windows)
+	- [Chocolatey](#chocolatey)
+	- [Download](#download)
+- [Install Python on Linux](#install-python-on-linux)
+	- [Apt](#apt)
+- [How to run](#how-to-run)
+	- [With VSCode](#with-vscode)
+	- [From the Terminal](#from-the-terminal)
+- [Changelog](#changelog)
+- [Download](#download-1)
+	- [Clone](#clone)
+		- [Using The Command Line](#using-the-command-line)
+		- [Using GitHub Desktop](#using-github-desktop)
+	- [Download Zip File](#download-zip-file)
+- [Licence](#licence)
+- [Screenshots](#screenshots)
+	- [Desktop](#desktop)
 
 ## Install Single Script
 ### Wget
