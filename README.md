@@ -1,15 +1,15 @@
-[![Github top language](https://img.shields.io/github/languages/top/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../)
-[![Codacy grade](https://img.shields.io/codacy/grade/6b3bd2d2569f44dca74a391e905042ac.svg?style=for-the-badge)](https://www.codacy.com/manual/FredHappyface/Python.CatImage)
-[![Repository size](https://img.shields.io/github/repo-size/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../)
-[![Issues](https://img.shields.io/github/issues/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../issues)
-[![License](https://img.shields.io/github/license/FredHappyface/Python.CatImage.svg?style=for-the-badge)](/LICENSE.md)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
-[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Python.CatImage.svg?style=for-the-badge)](../../commits/master)
+[![Github top language](https://img.shields.io/github/languages/top/FHPythonUtils/CatImage.svg?style=for-the-badge)](../../)
+[![Codacy grade](https://img.shields.io/codacy/grade/6b3bd2d2569f44dca74a391e905042ac.svg?style=for-the-badge)](https://www.codacy.com/manual/FHPythonUtils/CatImage)
+[![Repository size](https://img.shields.io/github/repo-size/FHPythonUtils/CatImage.svg?style=for-the-badge)](../../)
+[![Issues](https://img.shields.io/github/issues/FHPythonUtils/CatImage.svg?style=for-the-badge)](../../issues)
+[![License](https://img.shields.io/github/license/FHPythonUtils/CatImage.svg?style=for-the-badge)](/LICENSE.md)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/FHPythonUtils/CatImage.svg?style=for-the-badge)](../../commits/master)
+[![Last commit](https://img.shields.io/github/last-commit/FHPythonUtils/CatImage.svg?style=for-the-badge)](../../commits/master)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/catimage.svg?style=for-the-badge)](https://pypi.org/project/catimage/)
 [![PyPI Version](https://img.shields.io/pypi/v/catimage.svg?style=for-the-badge)](https://pypi.org/project/catimage/)
 
 <!-- omit in toc -->
-# Python.CatImage
+# CatImage
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
@@ -52,11 +52,11 @@ Cat an image to the terminal.
 ## Install Single Script
 ### Wget
 ```bash
-wget -O /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python.CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
+wget -O /usr/bin/catimage https://raw.githubusercontent.com/FHPythonUtils/CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
 ```
 ### Curl
 ```bash
-curl -o /usr/bin/catimage https://raw.githubusercontent.com/FredHappyface/Python.CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
+curl -o /usr/bin/catimage https://raw.githubusercontent.com/FHPythonUtils/CatImage/master/catimage.py && sudo chmod 774 /usr/bin/catimage
 ```
 
 ## Install With PIP
@@ -235,7 +235,7 @@ sudo apt install python3.8
 clone to
 4. Type 'git clone' followed by URL in step 2
 ```bash
-$ git clone https://github.com/FredHappyface/Python.CatImage
+$ git clone https://github.com/FHPythonUtils/CatImage
 ```
 
 More information can be found at
@@ -270,13 +270,13 @@ In the interest of fostering an open and welcoming environment, we
 as contributors and maintainers pledge to make participation in our
 project and our community a harassment-free experience for everyone.
 Please see the
-[Code of Conduct](https://github.com/FredHappyface/.github/blob/master/CODE_OF_CONDUCT.md) for more information.
+[Code of Conduct](https://github.com/FHPythonUtils/.github/blob/master/CODE_OF_CONDUCT.md) for more information.
 
 ### Contributing
-Contributions are welcome, please see the [Contributing Guidelines](https://github.com/FredHappyface/.github/blob/master/CONTRIBUTING.md) for more information.
+Contributions are welcome, please see the [Contributing Guidelines](https://github.com/FHPythonUtils/.github/blob/master/CONTRIBUTING.md) for more information.
 
 ### Security
-Thank you for improving the security of the project, please see the [Security Policy](https://github.com/FredHappyface/.github/blob/master/SECURITY.md) for more information.
+Thank you for improving the security of the project, please see the [Security Policy](https://github.com/FHPythonUtils/.github/blob/master/SECURITY.md) for more information.
 
 
 ## Screenshots
