@@ -35,13 +35,17 @@ Cat an image to the terminal.
 - [How to run](#how-to-run)
 	- [With VSCode](#with-vscode)
 	- [From the Terminal](#from-the-terminal)
-- [Changelog](#changelog)
 - [Download](#download-1)
 	- [Clone](#clone)
 		- [Using The Command Line](#using-the-command-line)
 		- [Using GitHub Desktop](#using-github-desktop)
 	- [Download Zip File](#download-zip-file)
-- [Licence](#licence)
+- [Community Files](#community-files)
+	- [License](#license)
+	- [Changelog](#changelog)
+	- [Code of Conduct](#code-of-conduct)
+	- [Contributing](#contributing)
+	- [Security](#security)
 - [Screenshots](#screenshots)
 	- [Desktop](#desktop)
 
@@ -222,12 +226,6 @@ sudo apt install python3.8
 ./[file].py
 ```
 
-
-
-## Changelog
-See the [CHANGELOG](/CHANGELOG.md) for more information.
-
-
 ## Download
 ### Clone
 #### Using The Command Line
@@ -258,10 +256,28 @@ More information can be found at
 3. Copy/ move to the desired location
 
 
-## Licence
+## Community Files
+### License
 MIT License
 Copyright (c) FredHappyface
-(See the [LICENSE](/LICENSE.md) for more information.)
+(See the [License](/LICENSE.md) for more information.)
+
+### Changelog
+See the [Changelog](/CHANGELOG.md) for more information.
+
+### Code of Conduct
+In the interest of fostering an open and welcoming environment, we
+as contributors and maintainers pledge to make participation in our
+project and our community a harassment-free experience for everyone.
+Please see the
+[Code of Conduct](https://github.com/FredHappyface/.github/blob/master/CODE_OF_CONDUCT.md) for more information.
+
+### Contributing
+Contributions are welcome, please see the [Contributing Guidelines](https://github.com/FredHappyface/.github/blob/master/CONTRIBUTING.md) for more information.
+
+### Security
+Thank you for improving the security of the project, please see the [Security Policy](https://github.com/FredHappyface/.github/blob/master/SECURITY.md) for more information.
+
 
 ## Screenshots
 
