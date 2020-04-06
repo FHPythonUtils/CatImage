@@ -118,28 +118,27 @@ HD Image True Colour:
 ## How To Use
 Use to cat an image to the terminal, see the help text below for more
 information on using this tool from the command line:
-```python
-usage: catimage.py [-h] [--gui] [-u] [-b] [-c Char] [-t] [-g | -r] Image
+```bash
+usage: catimage [-h] [-u] [-b] [-c CHAR] [-t] [-g | -r] image
 
-Cat an image to the terminal
+cat an image to the terminal
 
 positional arguments:
-  Image                 Image file or url
+  image                 image file or url
 
 optional arguments:
   -h, --help            show this help message and exit
-  --gui                 Start program as a GUI. Note: Has a dumb terminal
-  -u, --url             Image is a URL
-  -b, --big             Big image
-  -c Char, --char Char  Char to use in colour print use $'chr' for escaped chars
+  -u, --url             image is a URL
+  -b, --big             big image
+  -c CHAR, --char CHAR  char to use in colour print use $'chr' for escaped chars
   -t, --disable-truecolour
-                        Disable output in truecolour
+                        disable output in truecolour
 
-Choose one of the following:
-  Use the following arguments to change the look of the image
+choose one of the following:
+  use the following arguments to change the look of the image
 
-  -g, --greyscale       Output image in greyscale (best for terminals that cannot handle ANSI)
-  -r, --regular         Output image in regular definition
+  -g, --greyscale       output image in greyscale (best for terminals that cannot handle ANSI)
+  -r, --regular         output image in regular definition
 ```
 
 GUI
