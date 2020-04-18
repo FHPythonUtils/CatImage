@@ -2,6 +2,8 @@ experimental.py
 downloadedImage.*
 ignore/
 
+# Poetry stuff
+poetry.lock
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

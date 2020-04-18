@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "catimage"
+version = "2020.5"
+description = "Use to cat an image to the terminal"
+authors = ["FredHappyface"]
+classifiers = ["Programming Language :: Python :: 3.5","Programming Language :: Python :: 3.6", "Programming Language :: Python :: 3.7", "Programming Language :: Python :: 3.8", "Operating System :: OS Independent"]
+homepage = "https://github.com/FredHappyface/Python.CatImage"
+repository = "https://github.com/FredHappyface/Python.CatImage"
+documentation = "https://github.com/FredHappyface/Python.CatImage/blob/master/README.md"
+readme = "README.md"
+
+[tool.poetry.scripts]
+catimage = 'catimage.catimage:cli'
+
+[tool.poetry.dependencies]
+python = "^3.5"
+cli2gui = "^2020.7"
+pillow = "^7.1.1"
+metprint = "^2020.4"
+
+[tool.dephell.main]
+from = "pyproject.toml"
+to = "requirements.txt"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

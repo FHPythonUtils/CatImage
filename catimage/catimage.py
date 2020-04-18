@@ -10,12 +10,18 @@ https://github.com/hit9/img2txt.git by Chao Wang
 import platform
 import urllib.request
 import os
+import sys
 import ctypes
 import argparse
 from pathlib import Path
 
 from PIL import Image
 from cli2gui import Cli2Gui
+from metprint import LogType, Logger, FHFormatter
+
+if platform.system() == "Windows":
+	kernel32 = ctypes.windll.kernel32
+	kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 THISDIR = str(Path(__file__).resolve().parent)
 
@@ -31,6 +37,9 @@ def openImageToPx(imageName, maxLen, hd=False):
 	Returns:
 		int[][], int, int: 2d array of pixels, and the dimensions of the image
 	"""
+	if not os.path.exists(imageName):
+		Logger(FHFormatter()).logPrint(imageName + " does not exist", LogType.ERROR)
+		sys.exit(1)
 	image = Image.open(imageName).convert("RGBA")
 	initW, initH = image.size
 	scale = maxLen / max(initH, initW)
@@ -196,12 +205,6 @@ def handleArgs(args):
 		urllib.request.urlretrieve(args.image, "dowloadedImage.jpg")
 		args.image = "dowloadedImage.jpg"
 
-	if platform.system() == "Windows":
-		kernel32 = ctypes.windll.kernel32
-		kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-
-	os.path.exists(args.image)
-
 	maxLen = 130 if args.big else 78
 	if not args.greyscale and not args.regular:
 		result = generateHDColour(args.image, maxLen, not args.disable_truecolour, args.char)
@@ -213,6 +216,7 @@ def handleArgs(args):
 
 @Cli2Gui(run_function=handleArgs, image=THISDIR + os.sep + "program_icon.png", program_name="CatImage")
 def cli(): # pragma: no cover
+	""" CLI entry point """
 	parser = argparse.ArgumentParser(description="cat an image to the terminal")
 	parser.add_argument("image", type=str,
 		help="image file or url")
