@@ -1,6 +1,7 @@
 experimental.py
 downloadedImage.*
 ignore/
+README.rst
 
 # Poetry stuff
 poetry.lock
