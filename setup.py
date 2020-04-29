@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='catimage',
-    version='2020.5',
+    version='2020.5.1',
     description='Use to cat an image to the terminal',
     python_requires='==3.*,>=3.5.0',
     project_urls={

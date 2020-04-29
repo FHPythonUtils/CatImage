@@ -1,4 +1,4 @@
-"""Main entry point for cli
+"""Cat an image to the terminal. Main entry point for cli
 """
 from catimage import catimage
 

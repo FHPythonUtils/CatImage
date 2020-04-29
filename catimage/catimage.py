@@ -39,7 +39,7 @@ def openImageToPx(imageName, maxLen, hd=False):
 	"""
 	if not os.path.exists(imageName):
 		Logger(FHFormatter()).logPrint(imageName + " does not exist", LogType.ERROR)
-		sys.exit(1)
+		return Image.open(THISDIR + os.sep + "broken.png").convert("RGBA").load(), 16, 16
 	image = Image.open(imageName).convert("RGBA")
 	initW, initH = image.size
 	scale = maxLen / max(initH, initW)

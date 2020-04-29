@@ -13,10 +13,6 @@
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
-New Icon?
-
-<img src="readme-assets/icons/name1.png" alt="Project Icon" width="750">
-
 Cat an image to the terminal.
 
 - [Install Single Script](#install-single-script)
