@@ -9,6 +9,7 @@ https://github.com/hit9/img2txt.git by Chao Wang
 from __future__ import annotations
 
 from typing import Any, Callable, Union
+from sys import stdout
 import urllib.request
 import os
 import argparse
@@ -29,7 +30,7 @@ except ImportError:
 			return inner
 		return wrapper
 
-
+stdout.reconfigure(encoding="utf-8")
 THISDIR = str(Path(__file__).resolve().parent)
 
 

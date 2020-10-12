@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "catimage"
-version = "2020.6.0"
+version = "2020.6.1"
 description = "Use to cat an image to the terminal"
 authors = ["FredHappyface"]
 classifiers = [
