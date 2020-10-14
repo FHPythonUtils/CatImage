@@ -90,7 +90,7 @@ Functions
             args (argparse.Namespace): arguments
 
     
-`openImageToPx(imageName: str, maxLen: int, hd: bool = False) ‑> tuple[Any, int, int]`
+`openImageToPx(imageName: str, maxLen: int, hd: bool = False) ‑> tuple`
 :   Get an array of pixels and the dimensions of these
     
     Args:

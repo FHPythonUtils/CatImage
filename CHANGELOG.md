@@ -2,10 +2,15 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
-## 2020.5.3 - 2020/10/12
+
+## 2020.6.2 - 2020/10/14
+- Prepare for py3.9 & pillow 8
+
+
+## 2020.6.1 - 2020/10/12
 - set stdout to utf-8
 
-## 2020.5.2 - 2020/10/11
+## 2020.6 - 2020/10/11
 - Added typing
 
 ## 2020.5.2 - 2020/05/06
