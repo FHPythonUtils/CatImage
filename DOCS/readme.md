@@ -1,7 +1,10 @@
-Module catimage
-===============
-Cat an image to the terminal.
+# Catimage Modules
 
-Sub-modules
------------
-* catimage.catimage
+> Auto-generated documentation modules index.
+
+Full list of [Catimage](#catimage-index) project modules.
+
+- [Catimage Index](#catimage-index)
+- [catimage](catimage/index.md#catimage)
+    - [\_\_main\_\_](catimage/module.md#__main__)
+    - [catimage](catimage/catimage.md#catimage)
