@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "catimage"
-version = "2021"
+version = "2021.0.1"
 license = "mit"
 description = "Use to cat an image to the terminal"
 authors = ["FredHappyface"]

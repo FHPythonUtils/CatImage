@@ -1,5 +1,7 @@
 """Print test image as greyscale
 """
+from __future__ import annotations
+
 import sys
 from pathlib import Path
 
