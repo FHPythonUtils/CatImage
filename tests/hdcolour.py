@@ -1,4 +1,4 @@
-"""Print test image as greyscale
+"""Print test image as hd colour
 """
 from __future__ import annotations
 
@@ -10,4 +10,4 @@ sys.path.insert(0, str(Path(THISDIR).parent))
 
 import catimage
 
-print(catimage.generateGreyscale(f"{THISDIR}/test.png", 80))
+print(catimage.generateHDColour(f"{THISDIR}/data/test.png", 80))
