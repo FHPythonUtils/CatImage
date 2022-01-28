@@ -13,8 +13,14 @@ import catimage
 
 
 def test_greyscale():
-	assert catimage.generateGreyscale(f"{THISDIR}/data/test.png", 80).rstrip() == Path(f"{THISDIR}/data/test_greyscale.txt").read_text(encoding="utf-8").rstrip()
+	assert (
+		catimage.generateGreyscale(f"{THISDIR}/data/test.png", 80).rstrip()
+		== Path(f"{THISDIR}/data/test_greyscale.txt").read_text(encoding="utf-8").rstrip()
+	)
 
 
 def test_hdcolour():
-	assert catimage.generateHDColour(f"{THISDIR}/data/test.png", 80).rstrip() == Path(f"{THISDIR}/data/test_hd.txt").read_text(encoding="utf-8").rstrip()
+	assert (
+		catimage.generateHDColour(f"{THISDIR}/data/test.png", 80).rstrip()
+		== Path(f"{THISDIR}/data/test_hd.txt").read_text(encoding="utf-8").rstrip()
+	)
