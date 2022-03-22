@@ -48,8 +48,8 @@ CLI entry point
 
 ```python
 def genANSIpx(
-    beforeColour: None | int | tuple[(int, ...)],
-    colour: None | int | tuple[(int, ...)],
+    beforeColour: None | int | tuple[int, ...],
+    colour: None | int | tuple[int, ...],
     bg: bool = False,
     trueColour: bool = True,
 ) -> str:
@@ -149,7 +149,7 @@ absolute)
 [[find in source code]](../../../catimage/catimage.py#L73)
 
 ```python
-def getANSIColour(rgb: tuple[(int, ...)]) -> int:
+def getANSIColour(rgb: tuple[int, ...]) -> int:
 ```
 
 Generate the ansi escape code based on the pixel value
@@ -185,7 +185,7 @@ def openImageToPx(
     imageName: str,
     maxLen: int,
     hd: bool = False,
-) -> tuple[(Any, int, int)]:
+) -> tuple[Any, int, int]:
 ```
 
 Get an array of pixels and the dimensions of these
