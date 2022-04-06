@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "catimage"
-version = "2022"
+version = "2022.0.1"
 license = "mit"
 description = "Use to cat an image to the terminal"
 authors = ["FredHappyface"]
@@ -26,12 +26,11 @@ catimage = 'catimage.catimage:cli'
 
 [tool.poetry.dependencies]
 python = "^3.7"
-Pillow = "<10,>=9.0.0"
-metprint = {version = "<2023,>=2021", optional = true}
+Pillow = "<10,>=9.1.0"
 cli2gui = {version = "<2024,>=2022", optional = true}
 
 [tool.poetry.extras]
-full = ["metprint", "cli2gui"]
+full = ["cli2gui"]
 
 [tool.pylint.basic]
 argument-naming-style = "camelCase"

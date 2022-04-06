@@ -21,7 +21,7 @@ https://github.com/hit9/img2txt.git by Chao Wang
 
 ## Cli2Gui
 
-[[find in source code]](../../../catimage/catimage.py#L26)
+[[find in source code]](../../../catimage/catimage.py#L25)
 
 ```python
 def Cli2Gui(*args: Any, **kwargs: Any):
@@ -29,7 +29,7 @@ def Cli2Gui(*args: Any, **kwargs: Any):
 
 ## cli
 
-[[find in source code]](../../../catimage/catimage.py#L246)
+[[find in source code]](../../../catimage/catimage.py#L242)
 
 ```python
 @Cli2Gui(
@@ -44,7 +44,7 @@ CLI entry point
 
 ## genANSIpx
 
-[[find in source code]](../../../catimage/catimage.py#L88)
+[[find in source code]](../../../catimage/catimage.py#L84)
 
 ```python
 def genANSIpx(
@@ -71,7 +71,7 @@ colour (Union[None, int, tuple[int, ...]]): current colour
 
 ## generateColour
 
-[[find in source code]](../../../catimage/catimage.py#L170)
+[[find in source code]](../../../catimage/catimage.py#L166)
 
 ```python
 def generateColour(
@@ -99,7 +99,7 @@ absolute)
 
 ## generateGreyscale
 
-[[find in source code]](../../../catimage/catimage.py#L203)
+[[find in source code]](../../../catimage/catimage.py#L199)
 
 ```python
 def generateGreyscale(imageName: str, maxLen: int):
@@ -119,7 +119,7 @@ absolute)
 
 ## generateHDColour
 
-[[find in source code]](../../../catimage/catimage.py#L123)
+[[find in source code]](../../../catimage/catimage.py#L119)
 
 ```python
 def generateHDColour(
@@ -146,7 +146,7 @@ absolute)
 
 ## getANSIColour
 
-[[find in source code]](../../../catimage/catimage.py#L73)
+[[find in source code]](../../../catimage/catimage.py#L69)
 
 ```python
 def getANSIColour(rgb: tuple[int, ...]) -> int:
@@ -164,7 +164,7 @@ rgb (tuple[int, ...]): int array with pixel rgb values: [r, g, b]
 
 ## handleArgs
 
-[[find in source code]](../../../catimage/catimage.py#L226)
+[[find in source code]](../../../catimage/catimage.py#L222)
 
 ```python
 def handleArgs(args: argparse.Namespace):
@@ -178,7 +178,7 @@ Handle arguments from the cli/ gui
 
 ## openImageToPx
 
-[[find in source code]](../../../catimage/catimage.py#L45)
+[[find in source code]](../../../catimage/catimage.py#L44)
 
 ```python
 def openImageToPx(

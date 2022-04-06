@@ -3,6 +3,12 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2022.0.1 - 2022/04/06
+
+- Remove metprint
+- Update deps
+
+
 ## 2022 - 2022/01/24
 
 - Bump pillow version (CVE-2022-22815, CVE-2022-22816, CVE-2022-22817)

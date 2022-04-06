@@ -18,7 +18,6 @@ from PIL import Image
 
 try:
 	from cli2gui import Cli2Gui
-	from metprint import LAZY_PRINT, LogType
 except ImportError:
 
 	LAZY_PRINT = None
@@ -55,10 +54,7 @@ def openImageToPx(imageName: str, maxLen: int, hd: bool = False) -> tuple[Any, i
 		int[][], int, int: 2d array of pixels, and the dimensions of the image
 	"""
 	if not Path(imageName).exists():
-		if LAZY_PRINT is not None:
-			LAZY_PRINT(imageName + " does not exist", LogType.ERROR)
-		else:
-			print("- Error: " + imageName + " does not exist")
+		print(f"- Error: {imageName} does not exist")
 		return Image.open(THISDIR + "/broken.png").convert("RGBA").load(), 16, 16
 	image = Image.open(imageName).convert("RGBA")
 	initW, initH = image.size
