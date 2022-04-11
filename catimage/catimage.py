@@ -20,8 +20,6 @@ try:
 	from cli2gui import Cli2Gui
 except ImportError:
 
-	LAZY_PRINT = None
-
 	def Cli2Gui(*args: Any, **kwargs: Any):
 		_ = args, kwargs
 
@@ -163,7 +161,9 @@ def generateHDColour(
 	return "".join(result)
 
 
-def generateColour(imageName: str, maxLen: int, trueColour: bool = True, char: str = "\u2588"):
+def generateColour(
+	imageName: str, maxLen: int, trueColour: bool = True, char: str = "\u2588"
+) -> str:
 	"""Iterate through all of the pixels in an image and construct a printable
 	string
 
@@ -193,10 +193,10 @@ def generateColour(imageName: str, maxLen: int, trueColour: bool = True, char: s
 		if h + 1 != height:
 			beforeFgColour = None
 			result.append("\x1b[39m\n")
-	return result
+	return "".join(result)
 
 
-def generateGreyscale(imageName: str, maxLen: int):
+def generateGreyscale(imageName: str, maxLen: int) -> str:
 	"""Iterate through image pixels to make a printable string
 
 	Args:
@@ -219,7 +219,7 @@ def generateGreyscale(imageName: str, maxLen: int):
 	return "".join(result)
 
 
-def handleArgs(args: argparse.Namespace):
+def handleArgs(args: argparse.Namespace):  # pragma: no cover
 	"""Handle arguments from the cli/ gui
 
 	Args:

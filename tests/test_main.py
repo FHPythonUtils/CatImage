@@ -12,15 +12,29 @@ sys.path.insert(0, str(Path(THISDIR).parent))
 import catimage
 
 
+def aux_readansi(path: str):
+	return Path(f"{THISDIR}/data/{path}").read_text(encoding="utf-8").rstrip()
+
+
 def test_greyscale():
-	assert (
-		catimage.generateGreyscale(f"{THISDIR}/data/test.png", 80).rstrip()
-		== Path(f"{THISDIR}/data/test_greyscale.txt").read_text(encoding="utf-8").rstrip()
+	assert catimage.generateGreyscale(f"{THISDIR}/data/test.png", 80).rstrip() == aux_readansi(
+		"test_greyscale.txt"
 	)
 
 
 def test_hdcolour():
-	assert (
-		catimage.generateHDColour(f"{THISDIR}/data/test.png", 80).rstrip()
-		== Path(f"{THISDIR}/data/test_hd.txt").read_text(encoding="utf-8").rstrip()
+	assert catimage.generateHDColour(f"{THISDIR}/data/test.png", 80).rstrip() == aux_readansi(
+		"test_hd.txt"
+	)
+
+
+def test_colour():
+	assert catimage.generateColour(f"{THISDIR}/data/test.png", 80).rstrip() == aux_readansi(
+		"test_colour.txt"
+	)
+
+
+def test_notexists():
+	assert catimage.generateHDColour(f"{THISDIR}/data/notexists.png", 80).rstrip() == aux_readansi(
+		"test_broken.txt"
 	)

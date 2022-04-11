@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "catimage"
-version = "2022.0.1"
+version = "2022.0.2"
 license = "mit"
 description = "Use to cat an image to the terminal"
 authors = ["FredHappyface"]
@@ -36,6 +36,7 @@ full = ["cli2gui"]
 pytest = "^7.1.1"
 pylint = "^2.13.5"
 handsdown = "^1.1.0"
+coverage = "^6.3.2"
 
 [tool.pylint.basic]
 argument-naming-style = "camelCase"

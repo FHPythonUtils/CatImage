@@ -21,7 +21,7 @@ https://github.com/hit9/img2txt.git by Chao Wang
 
 ## Cli2Gui
 
-[[find in source code]](../../../catimage/catimage.py#L25)
+[[find in source code]](../../../catimage/catimage.py#L23)
 
 ```python
 def Cli2Gui(*args: Any, **kwargs: Any):
@@ -44,7 +44,7 @@ CLI entry point
 
 ## genANSIpx
 
-[[find in source code]](../../../catimage/catimage.py#L84)
+[[find in source code]](../../../catimage/catimage.py#L82)
 
 ```python
 def genANSIpx(
@@ -71,7 +71,7 @@ colour (Union[None, int, tuple[int, ...]]): current colour
 
 ## generateColour
 
-[[find in source code]](../../../catimage/catimage.py#L166)
+[[find in source code]](../../../catimage/catimage.py#L164)
 
 ```python
 def generateColour(
@@ -79,7 +79,7 @@ def generateColour(
     maxLen: int,
     trueColour: bool = True,
     char: str = '█',
-):
+) -> str:
 ```
 
 Iterate through all of the pixels in an image and construct a printable
@@ -102,7 +102,7 @@ absolute)
 [[find in source code]](../../../catimage/catimage.py#L199)
 
 ```python
-def generateGreyscale(imageName: str, maxLen: int):
+def generateGreyscale(imageName: str, maxLen: int) -> str:
 ```
 
 Iterate through image pixels to make a printable string
@@ -119,7 +119,7 @@ absolute)
 
 ## generateHDColour
 
-[[find in source code]](../../../catimage/catimage.py#L119)
+[[find in source code]](../../../catimage/catimage.py#L117)
 
 ```python
 def generateHDColour(
@@ -146,7 +146,7 @@ absolute)
 
 ## getANSIColour
 
-[[find in source code]](../../../catimage/catimage.py#L69)
+[[find in source code]](../../../catimage/catimage.py#L67)
 
 ```python
 def getANSIColour(rgb: tuple[int, ...]) -> int:
@@ -178,7 +178,7 @@ Handle arguments from the cli/ gui
 
 ## openImageToPx
 
-[[find in source code]](../../../catimage/catimage.py#L44)
+[[find in source code]](../../../catimage/catimage.py#L42)
 
 ```python
 def openImageToPx(
