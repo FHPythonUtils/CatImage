@@ -38,30 +38,9 @@ pylint = "^2.13.5"
 handsdown = "^1.1.0"
 coverage = "^6.3.2"
 
-[tool.pylint.basic]
-argument-naming-style = "camelCase"
-attr-naming-style = "camelCase"
-function-naming-style = "camelCase"
-method-naming-style = "camelCase"
-variable-naming-style = "camelCase"
-
-[tool.pylint.format]
-indent-string = "\t"
-
-[tool.pylint.master]
-ignore-patterns = "test_.*?py"
-
-[tool.pylint.messages_control]
-enable = ["F", "E", "W", "R", "C"]
-disable = [
-	"pointless-string-statement",
-	"superfluous-parens",
-	"bad-continuation"
-]
-
 [tool.black]
 line-length = 100
-target-version = ["py37"]
+target-version = ["py38"]
 
 [tool.isort]
 profile = "black"
@@ -74,3 +53,34 @@ ignore = "D205,D415"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.basic]
+argument-naming-style = "camelCase"
+attr-naming-style = "camelCase"
+function-naming-style = "camelCase"
+method-naming-style = "camelCase"
+variable-naming-style = "camelCase"
+
+[tool.pylint.format]
+indent-string = "\t"
+
+[tool.pylint.master]
+ignore-paths = ["tests"]
+
+[tool.pylint.messages_control]
+enable = ["F", "E", "W", "R", "C"]
+disable = ["pointless-string-statement", "superfluous-parens"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+env_list =
+	py311
+	py310
+	py39
+	py38
+
+[testenv]
+deps = pytest
+commands = pytest tests
+"""
