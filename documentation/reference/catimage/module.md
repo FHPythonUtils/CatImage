@@ -5,5 +5,4 @@
 Module
 
 > Auto-generated documentation for [catimage.__main__](../../../catimage/__main__.py) module.
-
 - [Module](#module)

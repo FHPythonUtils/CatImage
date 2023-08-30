@@ -36,6 +36,7 @@ except ImportError:
 stdout.reconfigure(encoding="utf-8")
 THISDIR = str(Path(__file__).resolve().parent)
 
+
 # pylint:disable=invalid-name
 
 
@@ -43,18 +44,19 @@ def openImageToPx(imageName: str, maxLen: int, hd: bool = False) -> tuple[Any, i
 	"""Get an array of pixels and the dimensions of these
 
 	Args:
-		imageName (str): path of the image on the filesystem (relative of
-		absolute)
+		imageName (str): path of the image on the filesystem (relative of absolute)
 		maxLen (int): maximum of width and height in chars
 		hd (bool, optional): get 'hd' array of pixels. Defaults to False.
 
 	Returns:
-		int[][], int, int: 2d array of pixels, and the dimensions of the image
+		tuple[Any, int, int]: 2D array of pixels, and the dimensions of the image
 	"""
-	if not Path(imageName).exists():
+	imagePath = Path(imageName)
+	if not imagePath.exists():
 		print(f"- Error: {imageName} does not exist")
 		return Image.open(THISDIR + "/broken.png").convert("RGBA").load(), 16, 16
-	image = Image.open(imageName).convert("RGBA")
+
+	image = Image.open(imagePath).convert("RGBA")
 	initW, initH = image.size
 	scale = maxLen / max(initH, initW)
 	width = int(scale * initW)
@@ -65,13 +67,13 @@ def openImageToPx(imageName: str, maxLen: int, hd: bool = False) -> tuple[Any, i
 
 
 def getANSIColour(rgb: tuple[int, ...]) -> int:
-	"""Generate the ansi escape code based on the pixel value
+	"""Generate the ANSI escape code based on the pixel value
 
 	Args:
-		rgb (tuple[int, ...]): int array with pixel rgb values: [r, g, b]
+		rgb (tuple[int, ...]): int array with pixel RGB values: [r, g, b]
 
 	Returns:
-		int: ansi escape code for the colour
+		int: ANSI escape code for the color
 	"""
 	websafeR = int(round((rgb[0] / 255.0) * 5))
 	websafeG = int(round((rgb[1] / 255.0) * 5))
@@ -80,22 +82,21 @@ def getANSIColour(rgb: tuple[int, ...]) -> int:
 
 
 def genANSIpx(
-	beforeColour: None | int | tuple[int, ...],
-	colour: None | int | tuple[int, ...],
+	beforeColour: int | tuple[int, ...] | None,
+	colour: int | tuple[int, ...] | None,
 	bg: bool = False,
 	trueColour: bool = True,
 ) -> str:
-	"""Generate the ansi escape string for a set of pixels with the same
-	colour
+	"""Generate the ANSI escape string for a set of pixels with the same color
 
 	Args:
-		beforeColour (Union[None, int, tuple[int, ...]]): previous colour
-		colour (Union[None, int, tuple[int, ...]]): current colour
-		bg (bool, optional): ansi background char. Defaults to False.
-		trueColour (bool, optional): print in true colour. Defaults to True.
+		beforeColour (Optional[Union[int, tuple[int, ...]]]): previous color
+		colour (Optional[Union[int, tuple[int, ...]]]): current color
+		bg (bool, optional): ANSI background char. Defaults to False.
+		trueColour (bool, optional): print in true color. Defaults to True.
 
 	Returns:
-		str: string to represent char colour
+		str: string to represent char color
 	"""
 	colourArr = []
 	if not trueColour:
@@ -111,6 +112,7 @@ def genANSIpx(
 			colourArr += ["48" if bg else "38", "5", str(colour)]
 		elif isinstance(colour, tuple):
 			colourArr += ["48" if bg else "38", "2", str(colour[0]), str(colour[1]), str(colour[2])]
+
 	return "\x1b[" + ";".join(colourArr) + "m" if len(colourArr) > 0 else ""
 
 
@@ -120,10 +122,9 @@ def generateHDColour(
 	"""Iterate through image pixels to make a printable string
 
 	Args:
-		imageName (str): path of the image on the filesystem (relative of
-		absolute)
+		imageName (str): path of the image on the filesystem (relative of absolute)
 		maxLen (int): maximum of width and height in chars
-		trueColour (bool, optional): print in true colour. Defaults to True.
+		trueColour (bool, optional): print in true color. Defaults to True.
 		char (str, optional): use this char for each pixel. Defaults to "\u2584".
 
 	Returns:
@@ -132,8 +133,9 @@ def generateHDColour(
 	char = "\u2584" if char in [None, ""] else char
 	pixels, width, height = openImageToPx(imageName, maxLen, hd=True)
 	result = ["\x1b[2K\x1b[0m"]  # Clear line and reset
-	beforeFgColour = None
 	beforeBgColour = None
+	beforeFgColour = None
+
 	for h in range(0, height, 2):
 		for w in range(width):
 			rgbaBg = pixels[w, h]
@@ -141,18 +143,21 @@ def generateHDColour(
 				rgbaFg = pixels[w, h + 1]
 			except IndexError:
 				rgbaFg = pixels[w, h]
+
 			if rgbaBg[3] != 0:
 				result.append(genANSIpx(beforeBgColour, rgbaBg[:3], True, trueColour=trueColour))
 				beforeBgColour = rgbaBg[:3]
 			else:
 				result.append(genANSIpx(beforeBgColour, None, True, trueColour=trueColour))
 				beforeBgColour = None
+
 			if rgbaFg[3] != 0:
 				result.append(genANSIpx(beforeFgColour, rgbaFg[:3], trueColour=trueColour) + char)
 				beforeFgColour = rgbaFg[:3]
 			else:
 				result.append(genANSIpx(beforeFgColour, None, trueColour=trueColour) + " ")
 				beforeFgColour = None
+
 		if h + 1 != height:
 			beforeFgColour = None
 			beforeBgColour = None
@@ -164,14 +169,12 @@ def generateHDColour(
 def generateColour(
 	imageName: str, maxLen: int, trueColour: bool = True, char: str = "\u2588"
 ) -> str:
-	"""Iterate through all of the pixels in an image and construct a printable
-	string
+	"""Iterate through all of the pixels in an image and construct a printable string
 
 	Args:
-		imageName (str): path of the image on the filesystem (relative of
-		absolute)
+		imageName (str): path of the image on the filesystem (relative of absolute)
 		maxLen (int): maximum of width and height in chars
-		trueColour (bool, optional): print in true colour. Defaults to True.
+		trueColour (bool, optional): print in true color. Defaults to True.
 		char (str, optional): use this char for each pixel. Defaults to "\u2588".
 
 	Returns:
@@ -181,18 +184,21 @@ def generateColour(
 	pixels, width, height = openImageToPx(imageName, maxLen)
 	result = ["\x1b[2K\x1b[0m"]  # Clear line and reset
 	beforeFgColour = None
+
 	for h in range(height):
 		for w in range(width):
-			rgba: tuple[int, ...] = pixels[w, h]
+			rgba = pixels[w, h]
 			if rgba[3] != 0:
 				result.append(genANSIpx(beforeFgColour, rgba[:3], trueColour=trueColour) + char)
 				beforeFgColour = rgba[:3]
 			else:
 				result.append(genANSIpx(beforeFgColour, None, trueColour=trueColour) + " ")
 				beforeFgColour = None
+
 		if h + 1 != height:
 			beforeFgColour = None
 			result.append("\x1b[39m\n")
+
 	return "".join(result)
 
 
@@ -200,8 +206,7 @@ def generateGreyscale(imageName: str, maxLen: int) -> str:
 	"""Iterate through image pixels to make a printable string
 
 	Args:
-		imageName (str): path of the image on the filesystem (relative of
-		absolute)
+		imageName (str): path of the image on the filesystem (relative of absolute)
 		maxLen (int): maximum of width and height in chars
 
 	Returns:
@@ -210,24 +215,26 @@ def generateGreyscale(imageName: str, maxLen: int) -> str:
 	pixels, width, height = openImageToPx(imageName, maxLen)
 	result = [""]
 	color = " .;-:!>7?CO$QHNM"
+
 	for h in range(height):
 		for w in range(width):
 			rgba = pixels[w, h]
 			rgb: tuple[int, ...] = rgba[:3]
 			result.append(color[int(sum(rgb) / 3.0 / 256.0 * 16)])
 		result.append("\n")
+
 	return "".join(result)
 
 
 def handleArgs(args: argparse.Namespace):  # pragma: no cover
-	"""Handle arguments from the cli/ gui
+	"""Handle arguments from the CLI / GUI
 
 	Args:
 		args (argparse.Namespace): arguments
 	"""
 	if args.url:
-		urllib.request.urlretrieve(args.image, "dowloadedImage.jpg")
-		args.image = "dowloadedImage.jpg"
+		urllib.request.urlretrieve(args.image, "downloadedImage.jpg")
+		args.image = "downloadedImage.jpg"
 
 	maxLen = 130 if args.big else 78
 	if not args.greyscale and not args.regular:
@@ -246,7 +253,7 @@ def cli():  # pragma: no cover
 	parser.add_argument(
 		"image",
 		type=str,
-		help="image file or url",
+		help="image file or URL",
 	)
 	parser.add_argument(
 		"-u",
@@ -264,10 +271,13 @@ def cli():  # pragma: no cover
 		"-c",
 		"--char",
 		action="store",
-		help="char to use in colour print use $'chr' for escaped chars",
+		help="char to use in color print use $'chr' for escaped chars",
 	)
 	parser.add_argument(
-		"-t", "--disable-truecolour", action="store_true", help="disable output in truecolour"
+		"-t",
+		"--disable-truecolour",
+		action="store_true",
+		help="disable output in true color",
 	)
 
 	group = parser.add_argument_group(
@@ -278,10 +288,13 @@ def cli():  # pragma: no cover
 		"-g",
 		"--greyscale",
 		action="store_true",
-		help="output image in greyscale (best for terminals that cannot handle ANSI)",
+		help="output image in grayscale (best for terminals that cannot handle ANSI)",
 	)
 	mxg.add_argument(
-		"-r", "--regular", action="store_true", help="output image in regular definition"
+		"-r",
+		"--regular",
+		action="store_true",
+		help="output image in regular definition",
 	)
 
 	args = parser.parse_args()

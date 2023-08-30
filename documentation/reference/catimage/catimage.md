@@ -32,7 +32,7 @@ def Cli2Gui(*args: Any, **kwargs: Any):
 
 ## cli
 
-[Show source in catimage.py:242](../../../catimage/catimage.py#L242)
+[Show source in catimage.py:249](../../../catimage/catimage.py#L249)
 
 CLI entry point
 
@@ -50,28 +50,27 @@ def cli():
 
 ## genANSIpx
 
-[Show source in catimage.py:82](../../../catimage/catimage.py#L82)
+[Show source in catimage.py:84](../../../catimage/catimage.py#L84)
 
-Generate the ansi escape string for a set of pixels with the same
-colour
+Generate the ANSI escape string for a set of pixels with the same color
 
 #### Arguments
 
-beforeColour (Union[None, int, tuple[int, ...]]): previous colour
-colour (Union[None, int, tuple[int, ...]]): current colour
-- `bg` *bool, optional* - ansi background char. Defaults to False.
-- `trueColour` *bool, optional* - print in true colour. Defaults to True.
+beforeColour (Optional[Union[int, tuple[int, ...]]]): previous color
+colour (Optional[Union[int, tuple[int, ...]]]): current color
+- `bg` *bool, optional* - ANSI background char. Defaults to False.
+- `trueColour` *bool, optional* - print in true color. Defaults to True.
 
 #### Returns
 
-- `str` - string to represent char colour
+- `str` - string to represent char color
 
 #### Signature
 
 ```python
 def genANSIpx(
-    beforeColour: None | int | tuple[int, ...],
-    colour: None | int | tuple[int, ...],
+    beforeColour: int | tuple[int, ...] | None,
+    colour: int | tuple[int, ...] | None,
     bg: bool = False,
     trueColour: bool = True,
 ) -> str:
@@ -82,17 +81,15 @@ def genANSIpx(
 
 ## generateColour
 
-[Show source in catimage.py:164](../../../catimage/catimage.py#L164)
+[Show source in catimage.py:169](../../../catimage/catimage.py#L169)
 
-Iterate through all of the pixels in an image and construct a printable
-string
+Iterate through all of the pixels in an image and construct a printable string
 
 #### Arguments
 
-- `imageName` *str* - path of the image on the filesystem (relative of
-absolute)
+- `imageName` *str* - path of the image on the filesystem (relative of absolute)
 - `maxLen` *int* - maximum of width and height in chars
-- `trueColour` *bool, optional* - print in true colour. Defaults to True.
+- `trueColour` *bool, optional* - print in true color. Defaults to True.
 - `char` *str, optional* - use this char for each pixel. Defaults to "█".
 
 #### Returns
@@ -112,14 +109,13 @@ def generateColour(
 
 ## generateGreyscale
 
-[Show source in catimage.py:199](../../../catimage/catimage.py#L199)
+[Show source in catimage.py:205](../../../catimage/catimage.py#L205)
 
 Iterate through image pixels to make a printable string
 
 #### Arguments
 
-- `imageName` *str* - path of the image on the filesystem (relative of
-absolute)
+- `imageName` *str* - path of the image on the filesystem (relative of absolute)
 - `maxLen` *int* - maximum of width and height in chars
 
 #### Returns
@@ -137,16 +133,15 @@ def generateGreyscale(imageName: str, maxLen: int) -> str:
 
 ## generateHDColour
 
-[Show source in catimage.py:117](../../../catimage/catimage.py#L117)
+[Show source in catimage.py:119](../../../catimage/catimage.py#L119)
 
 Iterate through image pixels to make a printable string
 
 #### Arguments
 
-- `imageName` *str* - path of the image on the filesystem (relative of
-absolute)
+- `imageName` *str* - path of the image on the filesystem (relative of absolute)
 - `maxLen` *int* - maximum of width and height in chars
-- `trueColour` *bool, optional* - print in true colour. Defaults to True.
+- `trueColour` *bool, optional* - print in true color. Defaults to True.
 - `char` *str, optional* - use this char for each pixel. Defaults to "▄".
 
 #### Returns
@@ -166,17 +161,17 @@ def generateHDColour(
 
 ## getANSIColour
 
-[Show source in catimage.py:67](../../../catimage/catimage.py#L67)
+[Show source in catimage.py:69](../../../catimage/catimage.py#L69)
 
-Generate the ansi escape code based on the pixel value
+Generate the ANSI escape code based on the pixel value
 
 #### Arguments
 
-rgb (tuple[int, ...]): int array with pixel rgb values: [r, g, b]
+rgb (tuple[int, ...]): int array with pixel RGB values: [r, g, b]
 
 #### Returns
 
-- `int` - ansi escape code for the colour
+- `int` - ANSI escape code for the color
 
 #### Signature
 
@@ -189,9 +184,9 @@ def getANSIColour(rgb: tuple[int, ...]) -> int:
 
 ## handleArgs
 
-[Show source in catimage.py:222](../../../catimage/catimage.py#L222)
+[Show source in catimage.py:229](../../../catimage/catimage.py#L229)
 
-Handle arguments from the cli/ gui
+Handle arguments from the CLI / GUI
 
 #### Arguments
 
@@ -208,20 +203,19 @@ def handleArgs(args: argparse.Namespace):
 
 ## openImageToPx
 
-[Show source in catimage.py:42](../../../catimage/catimage.py#L42)
+[Show source in catimage.py:43](../../../catimage/catimage.py#L43)
 
 Get an array of pixels and the dimensions of these
 
 #### Arguments
 
-- `imageName` *str* - path of the image on the filesystem (relative of
-absolute)
+- `imageName` *str* - path of the image on the filesystem (relative of absolute)
 - `maxLen` *int* - maximum of width and height in chars
 - `hd` *bool, optional* - get 'hd' array of pixels. Defaults to False.
 
 #### Returns
 
-int[][], int, int: 2d array of pixels, and the dimensions of the image
+tuple[Any, int, int]: 2D array of pixels, and the dimensions of the image
 
 #### Signature
 
@@ -229,5 +223,3 @@ int[][], int, int: 2d array of pixels, and the dimensions of the image
 def openImageToPx(imageName: str, maxLen: int, hd: bool = False) -> tuple[Any, int, int]:
     ...
 ```
-
-
