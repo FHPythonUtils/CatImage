@@ -24,8 +24,7 @@ Catimage
 #### Signature
 
 ```python
-def Cli2Gui(*args: Any, **kwargs: Any):
-    ...
+def Cli2Gui(*args: Any, **kwargs: Any): ...
 ```
 
 
@@ -42,8 +41,7 @@ CLI entry point
 @Cli2Gui(
     run_function=handleArgs, image=THISDIR + "/program_icon.png", program_name="CatImage"
 )
-def cli():
-    ...
+def cli(): ...
 ```
 
 
@@ -73,8 +71,7 @@ def genANSIpx(
     colour: int | tuple[int, ...] | None,
     bg: bool = False,
     trueColour: bool = True,
-) -> str:
-    ...
+) -> str: ...
 ```
 
 
@@ -101,8 +98,7 @@ Iterate through all of the pixels in an image and construct a printable string
 ```python
 def generateColour(
     imageName: str, maxLen: int, trueColour: bool = True, char: str = "█"
-) -> str:
-    ...
+) -> str: ...
 ```
 
 
@@ -125,8 +121,7 @@ Iterate through image pixels to make a printable string
 #### Signature
 
 ```python
-def generateGreyscale(imageName: str, maxLen: int) -> str:
-    ...
+def generateGreyscale(imageName: str, maxLen: int) -> str: ...
 ```
 
 
@@ -153,8 +148,7 @@ Iterate through image pixels to make a printable string
 ```python
 def generateHDColour(
     imageName: str, maxLen: int, trueColour: bool = True, char: str = "▄"
-) -> str:
-    ...
+) -> str: ...
 ```
 
 
@@ -176,8 +170,7 @@ rgb (tuple[int, ...]): int array with pixel RGB values: [r, g, b]
 #### Signature
 
 ```python
-def getANSIColour(rgb: tuple[int, ...]) -> int:
-    ...
+def getANSIColour(rgb: tuple[int, ...]) -> int: ...
 ```
 
 
@@ -195,8 +188,7 @@ Handle arguments from the CLI / GUI
 #### Signature
 
 ```python
-def handleArgs(args: argparse.Namespace):
-    ...
+def handleArgs(args: argparse.Namespace): ...
 ```
 
 
@@ -220,6 +212,7 @@ tuple[Any, int, int]: 2D array of pixels, and the dimensions of the image
 #### Signature
 
 ```python
-def openImageToPx(imageName: str, maxLen: int, hd: bool = False) -> tuple[Any, int, int]:
-    ...
+def openImageToPx(
+    imageName: str, maxLen: int, hd: bool = False
+) -> tuple[Any, int, int]: ...
 ```
