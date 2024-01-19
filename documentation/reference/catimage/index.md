@@ -1,7 +1,6 @@
 # Catimage
 
-[Catimage Index](../README.md#catimage-index) /
-Catimage
+[Catimage Index](../README.md#catimage-index) / Catimage
 
 > Auto-generated documentation for [catimage](../../../catimage/__init__.py) module.
 

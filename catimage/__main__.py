@@ -1,4 +1,4 @@
-"""Cat an image to the terminal. Main entry point for cli
+"""Cat an image to the terminal. Main entry point for cli.
 """
 from __future__ import annotations
 
