@@ -52,6 +52,7 @@ def openImageToPx(imageName: str, maxLen: int, *, hd: bool = False) -> tuple[Any
 	Returns:
 	-------
 		tuple[Any, int, int]: 2D array of pixels, and the dimensions of the image
+
 	"""
 	imagePath = Path(imageName)
 	if not imagePath.exists():
@@ -78,6 +79,7 @@ def getANSIColour(rgb: tuple[int, ...]) -> int:
 	Returns:
 	-------
 		int: ANSI escape code for the color
+
 	"""
 	websafeR = int(round((rgb[0] / 255.0) * 5))
 	websafeG = int(round((rgb[1] / 255.0) * 5))
@@ -104,6 +106,7 @@ def genANSIpx(
 	Returns:
 	-------
 		str: string to represent char color
+
 	"""
 	colourArr = []
 	if not trueColour:
@@ -138,6 +141,7 @@ def generateHDColour(
 	Returns:
 	-------
 		str: string to print
+
 	"""
 	char = "\u2584" if char in [None, ""] else char
 	pixels, width, height = openImageToPx(imageName, maxLen, hd=True)
@@ -190,6 +194,7 @@ def generateColour(
 	Returns:
 	-------
 		str: string to print
+
 	"""
 	char = "\u2588" if char in [None, ""] else char
 	pixels, width, height = openImageToPx(imageName, maxLen)
@@ -224,6 +229,7 @@ def generateGreyscale(imageName: str, maxLen: int) -> str:
 	Returns:
 	-------
 		str: string to print
+
 	"""
 	pixels, width, height = openImageToPx(imageName, maxLen)
 	result = [""]
@@ -245,6 +251,7 @@ def handleArgs(args: argparse.Namespace) -> None:  # pragma: no cover
 	Args:
 	----
 		args (argparse.Namespace): arguments
+
 	"""
 	if args.url:
 		urllib.request.urlretrieve(args.image, "downloadedImage.jpg")
