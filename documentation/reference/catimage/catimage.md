@@ -29,7 +29,7 @@ def Cli2Gui(*args: Any, **kwargs: Any): ...
 
 ## cli
 
-[Show source in catimage.py:262](../../../catimage/catimage.py#L262)
+[Show source in catimage.py:269](../../../catimage/catimage.py#L269)
 
 CLI entry point.
 
@@ -46,7 +46,7 @@ def cli() -> None: ...
 
 ## genANSIpx
 
-[Show source in catimage.py:88](../../../catimage/catimage.py#L88)
+[Show source in catimage.py:90](../../../catimage/catimage.py#L90)
 
 Generate the ANSI escape string for a set of pixels with the same color.
 
@@ -78,7 +78,7 @@ def genANSIpx(
 
 ## generateColour
 
-[Show source in catimage.py:178](../../../catimage/catimage.py#L178)
+[Show source in catimage.py:182](../../../catimage/catimage.py#L182)
 
 Iterate through all of the pixels in an image and construct a printable string.
 
@@ -107,7 +107,7 @@ def generateColour(
 
 ## generateGreyscale
 
-[Show source in catimage.py:216](../../../catimage/catimage.py#L216)
+[Show source in catimage.py:221](../../../catimage/catimage.py#L221)
 
 Iterate through image pixels to make a printable string.
 
@@ -132,7 +132,7 @@ def generateGreyscale(imageName: str, maxLen: int) -> str: ...
 
 ## generateHDColour
 
-[Show source in catimage.py:126](../../../catimage/catimage.py#L126)
+[Show source in catimage.py:129](../../../catimage/catimage.py#L129)
 
 Iterate through image pixels to make a printable string.
 
@@ -161,7 +161,7 @@ def generateHDColour(
 
 ## getANSIColour
 
-[Show source in catimage.py:71](../../../catimage/catimage.py#L71)
+[Show source in catimage.py:72](../../../catimage/catimage.py#L72)
 
 Generate the ANSI escape code based on the pixel value.
 
@@ -185,7 +185,7 @@ def getANSIColour(rgb: tuple[int, ...]) -> int: ...
 
 ## handleArgs
 
-[Show source in catimage.py:242](../../../catimage/catimage.py#L242)
+[Show source in catimage.py:248](../../../catimage/catimage.py#L248)
 
 Handle arguments from the CLI / GUI.
 
