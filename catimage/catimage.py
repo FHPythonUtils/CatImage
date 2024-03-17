@@ -6,6 +6,7 @@ Date: 2020/02/19.
 Cat an image to the console. Inspired by img2txt
 https://github.com/hit9/img2txt.git by Chao Wang
 """
+
 from __future__ import annotations
 
 import argparse

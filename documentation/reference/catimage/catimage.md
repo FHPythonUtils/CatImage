@@ -17,7 +17,7 @@
 
 ## Cli2Gui
 
-[Show source in catimage.py:23](../../../catimage/catimage.py#L23)
+[Show source in catimage.py:24](../../../catimage/catimage.py#L24)
 
 #### Signature
 
@@ -29,7 +29,7 @@ def Cli2Gui(*args: Any, **kwargs: Any): ...
 
 ## cli
 
-[Show source in catimage.py:269](../../../catimage/catimage.py#L269)
+[Show source in catimage.py:270](../../../catimage/catimage.py#L270)
 
 CLI entry point.
 
@@ -46,7 +46,7 @@ def cli() -> None: ...
 
 ## genANSIpx
 
-[Show source in catimage.py:90](../../../catimage/catimage.py#L90)
+[Show source in catimage.py:91](../../../catimage/catimage.py#L91)
 
 Generate the ANSI escape string for a set of pixels with the same color.
 
@@ -78,7 +78,7 @@ def genANSIpx(
 
 ## generateColour
 
-[Show source in catimage.py:182](../../../catimage/catimage.py#L182)
+[Show source in catimage.py:183](../../../catimage/catimage.py#L183)
 
 Iterate through all of the pixels in an image and construct a printable string.
 
@@ -107,7 +107,7 @@ def generateColour(
 
 ## generateGreyscale
 
-[Show source in catimage.py:221](../../../catimage/catimage.py#L221)
+[Show source in catimage.py:222](../../../catimage/catimage.py#L222)
 
 Iterate through image pixels to make a printable string.
 
@@ -132,7 +132,7 @@ def generateGreyscale(imageName: str, maxLen: int) -> str: ...
 
 ## generateHDColour
 
-[Show source in catimage.py:129](../../../catimage/catimage.py#L129)
+[Show source in catimage.py:130](../../../catimage/catimage.py#L130)
 
 Iterate through image pixels to make a printable string.
 
@@ -161,7 +161,7 @@ def generateHDColour(
 
 ## getANSIColour
 
-[Show source in catimage.py:72](../../../catimage/catimage.py#L72)
+[Show source in catimage.py:73](../../../catimage/catimage.py#L73)
 
 Generate the ANSI escape code based on the pixel value.
 
@@ -185,7 +185,7 @@ def getANSIColour(rgb: tuple[int, ...]) -> int: ...
 
 ## handleArgs
 
-[Show source in catimage.py:248](../../../catimage/catimage.py#L248)
+[Show source in catimage.py:249](../../../catimage/catimage.py#L249)
 
 Handle arguments from the CLI / GUI.
 
@@ -204,7 +204,7 @@ def handleArgs(args: argparse.Namespace) -> None: ...
 
 ## openImageToPx
 
-[Show source in catimage.py:43](../../../catimage/catimage.py#L43)
+[Show source in catimage.py:44](../../../catimage/catimage.py#L44)
 
 Get an array of pixels and the dimensions of these.
 
